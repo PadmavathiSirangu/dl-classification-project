@@ -1,0 +1,35 @@
+name: Test Push Trigger
+
+on:
+  push:
+    branches:
+      - wf_test  # Change this to your branch name
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Print branch info
+        run: |
+          echo "🚀 Workflow triggered!"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Triggered by: ${{ github.actor }}"
+          
+      - name: List files
+        run: |
+          echo "📁 Files in repository:"
+          ls -la
+          
+      - name: Current date and time
+        run: |
+          echo "⏰ Current time: $(date)"
+          
+      - name: Simple test
+        run: |
+          echo "✅ Workflow is working!"
+          echo "You can now add more complex steps"
