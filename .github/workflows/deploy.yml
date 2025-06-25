@@ -3,7 +3,7 @@ name: Test Push Trigger
 on:
   push:
     branches:
-      - wf_test  # Change this to your branch name
+      - PadmavathiSirangu-patch-1
 
 jobs:
   test:
